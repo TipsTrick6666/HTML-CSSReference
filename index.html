@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Tra Cứu HTML & CSS (Tiếng Việt)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      padding: 1rem
+    }
+
+    .wrap {
+      padding: 1rem 0;
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1a1a1a
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 180px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fff;
+      color: #1a1a1a
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: #888
+    }
+
+    .tabs {
+      display: flex;
+      gap: 6px
+    }
+
+    .tab {
+      padding: 7px 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      background: #fff;
+      color: #666;
+      transition: all 0.15s
+    }
+
+    .tab.active {
+      background: #f0f0f0;
+      color: #1a1a1a;
+      border-color: #888;
+      font-weight: 500
+    }
+
+    .cat-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px
+    }
+
+    .cat-btn {
+      padding: 4px 12px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 12px;
+      cursor: pointer;
+      background: #fff;
+      color: #666;
+      transition: all 0.15s
+    }
+
+    .cat-btn.active {
+      background: #dbeafe;
+      color: #1e40af;
+      border-color: #93c5fd
+    }
+
+    .count {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 8px
+    }
+
+    .scroll-wrap {
+      max-height: 700px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 12px
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px
+    }
+
+    th {
+      text-align: left;
+      padding: 8px 12px;
+      font-weight: 500;
+      font-size: 12px;
+      color: #666;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1
+    }
+
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top
+    }
+
+    tr:hover td {
+      background: #f9f9f9
+    }
+
+    .tag-cell {
+      font-family: monospace;
+      font-size: 12px;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 3px 8px;
+      display: inline-block;
+      white-space: nowrap;
+      color: #1a1a1a;
+      word-break: break-all
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 500;
+      white-space: nowrap
+    }
+
+    .bh {
+      background: #dbeafe;
+      color: #1e40af
+    }
+
+    .bs {
+      background: #d1fae5;
+      color: #065f46
+    }
+
+    .bf {
+      background: #fee2e2;
+      color: #991b1b
+    }
+
+    .bm {
+      background: #ede9fe;
+      color: #5b21b6
+    }
+
+    .bt {
+      background: #fef3c7;
+      color: #92400e
+    }
+
+    .bmeta {
+      background: #f3f4f6;
+      color: #374151
+    }
+
+    .bdl {
+      background: #fce7f3;
+      color: #9d174d
+    }
+
+    .bcl {
+      background: #d1fae5;
+      color: #065f46
+    }
+
+    .bca {
+      background: #ede9fe;
+      color: #5b21b6
+    }
+
+    .bco {
+      background: #f3f4f6;
+      color: #374151
+    }
+
+    .desc {
+      color: #1a1a1a;
+      line-height: 1.5
+    }
+
+    .subdesc {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: #999;
+      font-size: 14px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>📋 Bảng Tra Cứu HTML & CSS — Tiếng Việt</h1>
+    <div class="header">
+      <input class="search-box" id="search" placeholder="Tìm tag hoặc thuộc tính... (vd: color, div, margin)"
+        oninput="render()">
+      <div class="tabs">
+        <button class="tab active" onclick="setTab('html',this)">HTML Tags</button>
+        <button class="tab" onclick="setTab('css',this)">CSS Properties</button>
+      </div>
+    </div>
+    <div class="cat-filters" id="cats"></div>
+    <div class="count" id="count"></div>
+    <div class="scroll-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:160px">Tag / Property</th>
+            <th style="width:110px">Nhóm</th>
+            <th>Mô tả tiếng Việt</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="no-results" id="nores" style="display:none">Không tìm thấy kết quả phù hợp.</div>
+    </div>
+  </div>
+
+  <script>
+    var HTML = [
+      { tag: "&lt;!DOCTYPE&gt;", raw: "<!DOCTYPE>", cat: "Meta", bc: "bmeta", desc: "Khai báo loại tài liệu HTML5", sub: "Dòng đầu tiên của mọi file HTML" },
+      { tag: "&lt;html&gt;", raw: "<html>", cat: "Cấu trúc", bc: "bs", desc: "Phần tử gốc bao toàn bộ trang web", sub: "Mọi thứ đều nằm trong thẻ này" },
+      { tag: "&lt;head&gt;", raw: "<head>", cat: "Cấu trúc", bc: "bs", desc: "Chứa thông tin cấu hình của trang (không hiển thị)", sub: "Đặt title, meta, link CSS vào đây" },
+      { tag: "&lt;body&gt;", raw: "<body>", cat: "Cấu trúc", bc: "bs", desc: "Chứa toàn bộ nội dung hiển thị trên trang", sub: "Mọi thứ người dùng thấy đều ở đây" },
+      { tag: "&lt;title&gt;", raw: "<title>", cat: "Meta", bc: "bmeta", desc: "Đặt tiêu đề tab trình duyệt", sub: "Hiển thị trên tab và kết quả tìm kiếm Google" },
+      { tag: "&lt;meta&gt;", raw: "<meta>", cat: "Meta", bc: "bmeta", desc: "Cung cấp thông tin ẩn về trang (charset, viewport, SEO)", sub: "Ví dụ: charset='UTF-8' hoặc name='description'" },
+      { tag: "&lt;link&gt;", raw: "<link>", cat: "Meta", bc: "bmeta", desc: "Liên kết tài nguyên ngoài vào trang (thường là CSS)", sub: "Dùng để nhúng file .css từ bên ngoài" },
+      { tag: "&lt;style&gt;", raw: "<style>", cat: "Meta", bc: "bmeta", desc: "Viết CSS trực tiếp trong file HTML", sub: "CSS nội bộ — nên dùng file .css riêng cho dự án lớn" },
+      { tag: "&lt;script&gt;", raw: "<script>", cat: "Meta", bc: "bmeta", desc: "Nhúng hoặc liên kết code JavaScript", sub: "Đặt ở cuối body để trang tải nhanh hơn" },
+      { tag: "&lt;h1&gt; – &lt;h6&gt;", raw: "<h1>-<h6>", cat: "Văn bản", bc: "bh", desc: "Các cấp tiêu đề từ lớn nhất (h1) đến nhỏ nhất (h6)", sub: "h1 là tiêu đề chính, chỉ dùng 1 lần mỗi trang" },
+      { tag: "&lt;p&gt;", raw: "<p>", cat: "Văn bản", bc: "bh", desc: "Đoạn văn bản", sub: "Tự động xuống dòng và có khoảng cách trên/dưới" },
+      { tag: "&lt;span&gt;", raw: "<span>", cat: "Văn bản", bc: "bh", desc: "Bao một phần văn bản để tùy chỉnh style (inline)", sub: "Không tạo dòng mới — dùng để tô màu hoặc thay đổi font" },
+      { tag: "&lt;strong&gt;", raw: "<strong>", cat: "Văn bản", bc: "bh", desc: "In đậm và nhấn mạnh về ngữ nghĩa", sub: "Máy đọc màn hình nhận biết đây là nội dung quan trọng" },
+      { tag: "&lt;em&gt;", raw: "<em>", cat: "Văn bản", bc: "bh", desc: "In nghiêng và nhấn mạnh ngữ nghĩa", sub: "Khác với i — có ý nghĩa nhấn mạnh" },
+      { tag: "&lt;b&gt;", raw: "<b>", cat: "Văn bản", bc: "bh", desc: "In đậm thuần túy về hình thức", sub: "Không mang nghĩa nhấn mạnh — chỉ đổi kiểu chữ" },
+      { tag: "&lt;i&gt;", raw: "<i>", cat: "Văn bản", bc: "bh", desc: "In nghiêng thuần túy", sub: "Dùng cho tên sách, thuật ngữ kỹ thuật, tiếng nước ngoài" },
+      { tag: "&lt;u&gt;", raw: "<u>", cat: "Văn bản", bc: "bh", desc: "Gạch chân văn bản", sub: "Tránh dùng để không nhầm với link" },
+      { tag: "&lt;br&gt;", raw: "<br>", cat: "Văn bản", bc: "bh", desc: "Xuống dòng trong cùng đoạn", sub: "Không có thẻ đóng — ép xuống dòng tại vị trí đó" },
+      { tag: "&lt;hr&gt;", raw: "<hr>", cat: "Văn bản", bc: "bh", desc: "Vẽ đường kẻ ngang phân cách nội dung", sub: "Dùng để chia phần trong bài viết" },
+      { tag: "&lt;pre&gt;", raw: "<pre>", cat: "Văn bản", bc: "bh", desc: "Hiển thị văn bản giữ nguyên khoảng trắng và xuống dòng", sub: "Thường dùng để hiển thị code" },
+      { tag: "&lt;code&gt;", raw: "<code>", cat: "Văn bản", bc: "bh", desc: "Hiển thị đoạn code nhỏ inline", sub: "Dùng font monospace — thường kết hợp với pre" },
+      { tag: "&lt;blockquote&gt;", raw: "<blockquote>", cat: "Văn bản", bc: "bh", desc: "Trích dẫn một đoạn dài từ nguồn khác", sub: "Thường được thụt lề tự động" },
+      { tag: "&lt;q&gt;", raw: "<q>", cat: "Văn bản", bc: "bh", desc: "Trích dẫn ngắn inline (thêm dấu ngoặc kép tự động)", sub: "Trình duyệt tự thêm dấu ngoặc kép xung quanh" },
+      { tag: "&lt;abbr&gt;", raw: "<abbr>", cat: "Văn bản", bc: "bh", desc: "Chữ viết tắt kèm giải thích khi hover", sub: "Ví dụ: abbr title='HyperText Markup Language'" },
+      { tag: "&lt;mark&gt;", raw: "<mark>", cat: "Văn bản", bc: "bh", desc: "Đánh dấu/highlight văn bản (nền vàng mặc định)", sub: "Như dùng bút dạ quang trên văn bản" },
+      { tag: "&lt;sub&gt;", raw: "<sub>", cat: "Văn bản", bc: "bh", desc: "Chữ chỉ số dưới (H₂O)", sub: "" },
+      { tag: "&lt;sup&gt;", raw: "<sup>", cat: "Văn bản", bc: "bh", desc: "Chữ chỉ số trên (x²)", sub: "" },
+      { tag: "&lt;small&gt;", raw: "<small>", cat: "Văn bản", bc: "bh", desc: "Thu nhỏ chữ — dùng cho ghi chú phụ", sub: "" },
+      { tag: "&lt;del&gt;", raw: "<del>", cat: "Văn bản", bc: "bh", desc: "Văn bản bị xóa (gạch ngang giữa)", sub: "Thể hiện nội dung đã bị loại bỏ" },
+      { tag: "&lt;ins&gt;", raw: "<ins>", cat: "Văn bản", bc: "bh", desc: "Văn bản được thêm mới (gạch chân)", sub: "Thể hiện nội dung mới được bổ sung" },
+      { tag: "&lt;div&gt;", raw: "<div>", cat: "Cấu trúc", bc: "bs", desc: "Hộp khối vô hình để nhóm nội dung", sub: "Phần tử cơ bản nhất để bố cục trang" },
+      { tag: "&lt;header&gt;", raw: "<header>", cat: "Cấu trúc", bc: "bs", desc: "Phần đầu trang hoặc đầu section", sub: "Thường chứa logo, nav, tiêu đề" },
+      { tag: "&lt;footer&gt;", raw: "<footer>", cat: "Cấu trúc", bc: "bs", desc: "Phần chân trang", sub: "Thường chứa thông tin liên hệ, copyright" },
+      { tag: "&lt;nav&gt;", raw: "<nav>", cat: "Cấu trúc", bc: "bs", desc: "Khu vực điều hướng / menu", sub: "Bao các liên kết chuyển trang chính" },
+      { tag: "&lt;main&gt;", raw: "<main>", cat: "Cấu trúc", bc: "bs", desc: "Nội dung chính của trang (chỉ dùng 1 lần)", sub: "Không bao header, footer, sidebar" },
+      { tag: "&lt;section&gt;", raw: "<section>", cat: "Cấu trúc", bc: "bs", desc: "Một phần/chương trong trang có chủ đề riêng", sub: "Thường có tiêu đề h2/h3 bên trong" },
+      { tag: "&lt;article&gt;", raw: "<article>", cat: "Cấu trúc", bc: "bs", desc: "Nội dung độc lập có thể đứng riêng (bài viết, tin tức)", sub: "Như một bài blog hoàn chỉnh" },
+      { tag: "&lt;aside&gt;", raw: "<aside>", cat: "Cấu trúc", bc: "bs", desc: "Nội dung phụ bên lề (sidebar, quảng cáo, ghi chú)", sub: "Liên quan nhưng không phải nội dung chính" },
+      { tag: "&lt;figure&gt;", raw: "<figure>", cat: "Cấu trúc", bc: "bs", desc: "Bao hình ảnh/biểu đồ cùng chú thích", sub: "" },
+      { tag: "&lt;figcaption&gt;", raw: "<figcaption>", cat: "Cấu trúc", bc: "bs", desc: "Chú thích cho hình ảnh trong figure", sub: "" },
+      { tag: "&lt;details&gt;", raw: "<details>", cat: "Cấu trúc", bc: "bs", desc: "Hộp nội dung ẩn/hiện khi nhấp vào", sub: "Accordion tự nhiên không cần JavaScript" },
+      { tag: "&lt;summary&gt;", raw: "<summary>", cat: "Cấu trúc", bc: "bs", desc: "Tiêu đề hiển thị của details", sub: "Phần người dùng nhấp vào để mở/đóng" },
+      { tag: "&lt;dialog&gt;", raw: "<dialog>", cat: "Cấu trúc", bc: "bs", desc: "Hộp thoại/popup native của HTML", sub: "Cần JS để mở: element.showModal()" },
+      { tag: "&lt;a&gt;", raw: "<a>", cat: "Liên kết", bc: "bh", desc: "Tạo liên kết đến trang khác hoặc vị trí trong trang", sub: "href bắt buộc — target='_blank' để mở tab mới" },
+      { tag: "&lt;img&gt;", raw: "<img>", cat: "Media", bc: "bm", desc: "Nhúng hình ảnh vào trang", sub: "src là đường dẫn ảnh, alt là mô tả thay thế (bắt buộc)" },
+      { tag: "&lt;video&gt;", raw: "<video>", cat: "Media", bc: "bm", desc: "Nhúng video vào trang", sub: "Hỗ trợ controls, autoplay, loop, muted" },
+      { tag: "&lt;audio&gt;", raw: "<audio>", cat: "Media", bc: "bm", desc: "Nhúng âm thanh vào trang", sub: "" },
+      { tag: "&lt;source&gt;", raw: "<source>", cat: "Media", bc: "bm", desc: "Chỉ định nguồn file cho video hoặc audio", sub: "Có thể đặt nhiều định dạng để dự phòng" },
+      { tag: "&lt;iframe&gt;", raw: "<iframe>", cat: "Media", bc: "bm", desc: "Nhúng trang web khác vào trong trang hiện tại", sub: "Dùng nhúng YouTube, Google Maps, widget ngoài" },
+      { tag: "&lt;canvas&gt;", raw: "<canvas>", cat: "Media", bc: "bm", desc: "Vùng vẽ đồ họa bằng JavaScript", sub: "Dùng cho game, biểu đồ tùy chỉnh, animation" },
+      { tag: "&lt;svg&gt;", raw: "<svg>", cat: "Media", bc: "bm", desc: "Vẽ đồ họa vector trực tiếp trong HTML", sub: "Không mờ khi zoom — tốt cho icon và logo" },
+      { tag: "&lt;ul&gt;", raw: "<ul>", cat: "Danh sách", bc: "bdl", desc: "Danh sách không thứ tự (bullet point)", sub: "" },
+      { tag: "&lt;ol&gt;", raw: "<ol>", cat: "Danh sách", bc: "bdl", desc: "Danh sách có thứ tự (đánh số)", sub: "" },
+      { tag: "&lt;li&gt;", raw: "<li>", cat: "Danh sách", bc: "bdl", desc: "Một mục trong danh sách ul hoặc ol", sub: "" },
+      { tag: "&lt;dl&gt;", raw: "<dl>", cat: "Danh sách", bc: "bdl", desc: "Danh sách định nghĩa (thuật ngữ + giải thích)", sub: "" },
+      { tag: "&lt;dt&gt;", raw: "<dt>", cat: "Danh sách", bc: "bdl", desc: "Thuật ngữ trong danh sách định nghĩa", sub: "" },
+      { tag: "&lt;dd&gt;", raw: "<dd>", cat: "Danh sách", bc: "bdl", desc: "Giải thích/định nghĩa cho thuật ngữ dt", sub: "" },
+      { tag: "&lt;table&gt;", raw: "<table>", cat: "Bảng", bc: "bt", desc: "Tạo bảng dữ liệu", sub: "Chỉ dùng cho dữ liệu có cấu trúc, không dùng để bố cục" },
+      { tag: "&lt;thead&gt;", raw: "<thead>", cat: "Bảng", bc: "bt", desc: "Phần tiêu đề của bảng", sub: "" },
+      { tag: "&lt;tbody&gt;", raw: "<tbody>", cat: "Bảng", bc: "bt", desc: "Phần nội dung chính của bảng", sub: "" },
+      { tag: "&lt;tfoot&gt;", raw: "<tfoot>", cat: "Bảng", bc: "bt", desc: "Phần chân bảng (tổng cộng, ghi chú)", sub: "" },
+      { tag: "&lt;tr&gt;", raw: "<tr>", cat: "Bảng", bc: "bt", desc: "Hàng trong bảng", sub: "" },
+      { tag: "&lt;th&gt;", raw: "<th>", cat: "Bảng", bc: "bt", desc: "Ô tiêu đề (tự động in đậm và căn giữa)", sub: "" },
+      { tag: "&lt;td&gt;", raw: "<td>", cat: "Bảng", bc: "bt", desc: "Ô dữ liệu thông thường trong bảng", sub: "" },
+      { tag: "&lt;caption&gt;", raw: "<caption>", cat: "Bảng", bc: "bt", desc: "Chú thích/tiêu đề cho bảng", sub: "" },
+      { tag: "&lt;colgroup&gt;", raw: "<colgroup>", cat: "Bảng", bc: "bt", desc: "Nhóm cột để áp dụng style chung", sub: "" },
+      { tag: "&lt;col&gt;", raw: "<col>", cat: "Bảng", bc: "bt", desc: "Định nghĩa thuộc tính cho từng cột trong bảng", sub: "" },
+      { tag: "&lt;form&gt;", raw: "<form>", cat: "Form", bc: "bf", desc: "Tạo biểu mẫu để thu thập dữ liệu người dùng", sub: "action là URL gửi dữ liệu, method là GET hoặc POST" },
+      { tag: "&lt;input&gt;", raw: "<input>", cat: "Form", bc: "bf", desc: "Ô nhập liệu đa năng (text, email, password, checkbox...)", sub: "type quyết định loại ô nhập — quan trọng nhất trong form" },
+      { tag: "&lt;label&gt;", raw: "<label>", cat: "Form", bc: "bf", desc: "Nhãn mô tả cho ô nhập liệu", sub: "for phải khớp id của input để click vào label cũng focus input" },
+      { tag: "&lt;button&gt;", raw: "<button>", cat: "Form", bc: "bf", desc: "Nút nhấn tương tác", sub: "type='submit' gửi form, type='button' để xử lý bằng JS" },
+      { tag: "&lt;textarea&gt;", raw: "<textarea>", cat: "Form", bc: "bf", desc: "Ô nhập văn bản nhiều dòng", sub: "rows và cols điều chỉnh kích thước ban đầu" },
+      { tag: "&lt;select&gt;", raw: "<select>", cat: "Form", bc: "bf", desc: "Hộp chọn dropdown", sub: "Chứa các thẻ option bên trong" },
+      { tag: "&lt;option&gt;", raw: "<option>", cat: "Form", bc: "bf", desc: "Một lựa chọn trong dropdown select", sub: "" },
+      { tag: "&lt;optgroup&gt;", raw: "<optgroup>", cat: "Form", bc: "bf", desc: "Nhóm các option trong dropdown", sub: "" },
+      { tag: "&lt;fieldset&gt;", raw: "<fieldset>", cat: "Form", bc: "bf", desc: "Nhóm các trường trong form thành một khối", sub: "Tự động vẽ đường viền xung quanh nhóm" },
+      { tag: "&lt;legend&gt;", raw: "<legend>", cat: "Form", bc: "bf", desc: "Tiêu đề cho nhóm fieldset", sub: "" },
+      { tag: "&lt;datalist&gt;", raw: "<datalist>", cat: "Form", bc: "bf", desc: "Gợi ý tự động cho ô input", sub: "Kết hợp với list='id' trong input để hiện gợi ý" },
+      { tag: "&lt;output&gt;", raw: "<output>", cat: "Form", bc: "bf", desc: "Hiển thị kết quả tính toán từ form", sub: "" },
+      { tag: "&lt;progress&gt;", raw: "<progress>", cat: "Form", bc: "bf", desc: "Thanh tiến trình", sub: "value và max kiểm soát phần trăm hoàn thành" },
+      { tag: "&lt;meter&gt;", raw: "<meter>", cat: "Form", bc: "bf", desc: "Thanh đo giá trị trong một khoảng (pin, điểm số)", sub: "Khác progress — dùng khi có min/max xác định" },
+    ];
+
+    var CSS = [
+      { tag: "color", cat: "Văn bản", bc: "bca", desc: "Màu chữ", sub: "Tên màu, mã hex (#ff0000), rgb(), hoặc hsl()" },
+      { tag: "font-size", cat: "Văn bản", bc: "bca", desc: "Cỡ chữ", sub: "px, em, rem, % — rem tốt nhất cho responsive" },
+      { tag: "font-family", cat: "Văn bản", bc: "bca", desc: "Font chữ", sub: "Liệt kê nhiều font dự phòng: 'Roboto', sans-serif" },
+      { tag: "font-weight", cat: "Văn bản", bc: "bca", desc: "Độ đậm của chữ", sub: "normal (400), bold (700), hoặc số từ 100–900" },
+      { tag: "font-style", cat: "Văn bản", bc: "bca", desc: "Kiểu chữ: bình thường hoặc nghiêng", sub: "normal | italic | oblique" },
+      { tag: "text-align", cat: "Văn bản", bc: "bca", desc: "Căn chỉnh văn bản theo chiều ngang", sub: "left | center | right | justify" },
+      { tag: "text-decoration", cat: "Văn bản", bc: "bca", desc: "Trang trí văn bản (gạch chân, gạch ngang, gạch trên)", sub: "none | underline | line-through | overline" },
+      { tag: "text-transform", cat: "Văn bản", bc: "bca", desc: "Chuyển đổi chữ hoa/thường tự động", sub: "uppercase | lowercase | capitalize" },
+      { tag: "line-height", cat: "Văn bản", bc: "bca", desc: "Khoảng cách giữa các dòng chữ", sub: "1.5 đến 1.8 là tiêu chuẩn dễ đọc" },
+      { tag: "letter-spacing", cat: "Văn bản", bc: "bca", desc: "Khoảng cách giữa các ký tự", sub: "Số dương = rộng hơn, số âm = hẹp hơn" },
+      { tag: "word-spacing", cat: "Văn bản", bc: "bca", desc: "Khoảng cách giữa các từ", sub: "" },
+      { tag: "text-shadow", cat: "Văn bản", bc: "bca", desc: "Đổ bóng cho văn bản", sub: "text-shadow: x y blur color" },
+      { tag: "white-space", cat: "Văn bản", bc: "bca", desc: "Cách xử lý khoảng trắng và xuống dòng", sub: "nowrap ngăn xuống dòng, pre giữ nguyên khoảng trắng" },
+      { tag: "text-overflow", cat: "Văn bản", bc: "bca", desc: "Xử lý văn bản bị tràn ra ngoài hộp", sub: "ellipsis thêm '...' khi chữ bị cắt — cần overflow:hidden" },
+      { tag: "vertical-align", cat: "Văn bản", bc: "bca", desc: "Căn chỉnh dọc của phần tử inline", sub: "top | middle | bottom | baseline" },
+      { tag: "width", cat: "Kích thước", bc: "bcl", desc: "Chiều rộng của phần tử", sub: "px, %, vw, auto — 100% = chiều rộng phần tử cha" },
+      { tag: "height", cat: "Kích thước", bc: "bcl", desc: "Chiều cao của phần tử", sub: "auto = tự điều chỉnh theo nội dung" },
+      { tag: "max-width", cat: "Kích thước", bc: "bcl", desc: "Giới hạn chiều rộng tối đa", sub: "Phần tử không bao giờ rộng hơn giá trị này" },
+      { tag: "min-width", cat: "Kích thước", bc: "bcl", desc: "Chiều rộng tối thiểu", sub: "" },
+      { tag: "max-height", cat: "Kích thước", bc: "bcl", desc: "Giới hạn chiều cao tối đa", sub: "" },
+      { tag: "min-height", cat: "Kích thước", bc: "bcl", desc: "Chiều cao tối thiểu", sub: "" },
+      { tag: "margin", cat: "Khoảng cách", bc: "bcl", desc: "Khoảng cách bên ngoài phần tử", sub: "margin: top right bottom left — margin:auto để căn giữa" },
+      { tag: "padding", cat: "Khoảng cách", bc: "bcl", desc: "Khoảng cách bên trong phần tử (giữa nội dung và viền)", sub: "padding: top right bottom left" },
+      { tag: "border", cat: "Viền", bc: "bcl", desc: "Viền xung quanh phần tử", sub: "border: 1px solid red — viết tắt của width, style, color" },
+      { tag: "border-radius", cat: "Viền", bc: "bcl", desc: "Bo tròn góc phần tử", sub: "50% để tạo hình tròn, px để bo góc cụ thể" },
+      { tag: "border-width", cat: "Viền", bc: "bcl", desc: "Độ dày viền", sub: "" },
+      { tag: "border-style", cat: "Viền", bc: "bcl", desc: "Kiểu viền", sub: "solid | dashed | dotted | double | none" },
+      { tag: "border-color", cat: "Viền", bc: "bcl", desc: "Màu viền", sub: "" },
+      { tag: "outline", cat: "Viền", bc: "bcl", desc: "Viền ngoài (không chiếm không gian, không ảnh hưởng layout)", sub: "Thường thấy khi focus vào input — outline:none để xóa" },
+      { tag: "box-shadow", cat: "Hiệu ứng", bc: "bco", desc: "Đổ bóng cho hộp/phần tử", sub: "box-shadow: x y blur spread color — inset để bóng bên trong" },
+      { tag: "opacity", cat: "Hiệu ứng", bc: "bco", desc: "Độ trong suốt (0 = ẩn, 1 = hiện hoàn toàn)", sub: "Ảnh hưởng cả phần tử và nội dung bên trong" },
+      { tag: "overflow", cat: "Hiệu ứng", bc: "bco", desc: "Xử lý nội dung tràn ra ngoài hộp", sub: "visible | hidden | scroll | auto" },
+      { tag: "cursor", cat: "Hiệu ứng", bc: "bco", desc: "Hình dạng con trỏ chuột khi hover", sub: "pointer (tay chỉ), default, crosshair, not-allowed..." },
+      { tag: "visibility", cat: "Hiệu ứng", bc: "bco", desc: "Ẩn phần tử nhưng vẫn giữ không gian", sub: "hidden vẫn chiếm chỗ — khác với display:none" },
+      { tag: "filter", cat: "Hiệu ứng", bc: "bco", desc: "Hiệu ứng hình ảnh (mờ, trắng đen, độ sáng...)", sub: "blur(), grayscale(), brightness(), contrast(), sepia()" },
+      { tag: "clip-path", cat: "Hiệu ứng", bc: "bco", desc: "Cắt phần tử theo hình dạng tùy chỉnh", sub: "circle(), polygon(), inset() — tạo hình dạng độc đáo" },
+      { tag: "background-color", cat: "Nền", bc: "bcl", desc: "Màu nền của phần tử", sub: "" },
+      { tag: "background-image", cat: "Nền", bc: "bcl", desc: "Ảnh nền của phần tử", sub: "url('anh.jpg') hoặc linear-gradient(...)" },
+      { tag: "background-size", cat: "Nền", bc: "bcl", desc: "Kích thước ảnh nền", sub: "cover: phủ toàn bộ | contain: hiện hết ảnh" },
+      { tag: "background-position", cat: "Nền", bc: "bcl", desc: "Vị trí ảnh nền", sub: "center | top left | 50% 50%" },
+      { tag: "background-repeat", cat: "Nền", bc: "bcl", desc: "Lặp lại ảnh nền hay không", sub: "no-repeat | repeat | repeat-x | repeat-y" },
+      { tag: "background-attachment", cat: "Nền", bc: "bcl", desc: "Ảnh nền cuộn cùng trang hay cố định", sub: "fixed tạo hiệu ứng parallax đẹp" },
+      { tag: "background", cat: "Nền", bc: "bcl", desc: "Viết tắt tất cả thuộc tính nền trong một dòng", sub: "" },
+      { tag: "display", cat: "Bố cục", bc: "bcl", desc: "Kiểu hiển thị của phần tử", sub: "block | inline | inline-block | flex | grid | none (ẩn)" },
+      { tag: "position", cat: "Bố cục", bc: "bcl", desc: "Cách định vị phần tử trên trang", sub: "static | relative | absolute | fixed | sticky" },
+      { tag: "top / right / bottom / left", cat: "Bố cục", bc: "bcl", desc: "Vị trí của phần tử khi đã đặt position", sub: "Chỉ có tác dụng khi position không phải static" },
+      { tag: "z-index", cat: "Bố cục", bc: "bcl", desc: "Thứ tự xếp chồng (số lớn hơn = nằm trên)", sub: "Chỉ hoạt động khi position không phải static" },
+      { tag: "float", cat: "Bố cục", bc: "bcl", desc: "Đẩy phần tử sang trái/phải cho nội dung khác bao quanh", sub: "left | right | none — Ít dùng, thay bằng flexbox" },
+      { tag: "flex", cat: "Flexbox", bc: "bcl", desc: "Viết tắt flex-grow, flex-shrink, flex-basis", sub: "flex: 1 để phần tử chiếm phần không gian còn lại" },
+      { tag: "flex-direction", cat: "Flexbox", bc: "bcl", desc: "Hướng sắp xếp các phần tử con trong flex container", sub: "row (ngang) | column (dọc) | row-reverse | column-reverse" },
+      { tag: "flex-wrap", cat: "Flexbox", bc: "bcl", desc: "Cho phép xuống hàng khi không đủ chỗ", sub: "nowrap | wrap | wrap-reverse" },
+      { tag: "justify-content", cat: "Flexbox", bc: "bcl", desc: "Căn chỉnh phần tử con theo hướng chính", sub: "flex-start | center | flex-end | space-between | space-around" },
+      { tag: "align-items", cat: "Flexbox", bc: "bcl", desc: "Căn chỉnh phần tử con theo hướng vuông góc", sub: "stretch | center | flex-start | flex-end | baseline" },
+      { tag: "align-self", cat: "Flexbox", bc: "bcl", desc: "Căn chỉnh riêng một phần tử con trong flex", sub: "Ghi đè align-items chỉ cho phần tử đó" },
+      { tag: "gap", cat: "Flexbox", bc: "bcl", desc: "Khoảng cách giữa các phần tử con trong flex/grid", sub: "Thay thế margin giữa các item — gọn hơn nhiều" },
+      { tag: "flex-grow", cat: "Flexbox", bc: "bcl", desc: "Tỉ lệ mở rộng của phần tử so với các phần tử cùng cấp", sub: "0 = không mở rộng, 1 = chiếm phần còn lại" },
+      { tag: "flex-shrink", cat: "Flexbox", bc: "bcl", desc: "Tỉ lệ thu nhỏ khi không đủ không gian", sub: "1 = thu nhỏ bình thường, 0 = không bao giờ thu nhỏ" },
+      { tag: "flex-basis", cat: "Flexbox", bc: "bcl", desc: "Kích thước cơ sở trước khi flex tính toán", sub: "auto hoặc px/% cụ thể" },
+      { tag: "grid-template-columns", cat: "Grid", bc: "bcl", desc: "Định nghĩa số cột và kích thước mỗi cột trong grid", sub: "1fr = 1 phần, repeat(3, 1fr) = 3 cột bằng nhau" },
+      { tag: "grid-template-rows", cat: "Grid", bc: "bcl", desc: "Định nghĩa số hàng và kích thước mỗi hàng trong grid", sub: "" },
+      { tag: "grid-column", cat: "Grid", bc: "bcl", desc: "Phần tử chiếm bao nhiêu cột hoặc bắt đầu/kết thúc cột nào", sub: "grid-column: 1 / 3 = chiếm từ cột 1 đến cột 3" },
+      { tag: "grid-row", cat: "Grid", bc: "bcl", desc: "Phần tử chiếm bao nhiêu hàng", sub: "" },
+      { tag: "grid-area", cat: "Grid", bc: "bcl", desc: "Đặt tên vùng cho phần tử trong grid", sub: "Dùng cùng grid-template-areas để bố cục trực quan" },
+      { tag: "grid-template-areas", cat: "Grid", bc: "bcl", desc: "Bố cục grid bằng tên vùng như bản đồ", sub: "'header header' / 'sidebar main' — rất trực quan" },
+      { tag: "column-gap", cat: "Grid", bc: "bcl", desc: "Khoảng cách giữa các cột", sub: "" },
+      { tag: "row-gap", cat: "Grid", bc: "bcl", desc: "Khoảng cách giữa các hàng", sub: "" },
+      { tag: "transition", cat: "Animation", bc: "bca", desc: "Hiệu ứng chuyển đổi mượt mà khi thuộc tính thay đổi", sub: "transition: property duration timing — vd: all 0.3s ease" },
+      { tag: "animation", cat: "Animation", bc: "bca", desc: "Hiệu ứng chuyển động liên tục theo keyframe", sub: "Cần định nghĩa @keyframes trước rồi gán vào animation" },
+      { tag: "transform", cat: "Animation", bc: "bca", desc: "Biến đổi hình dạng/vị trí mà không ảnh hưởng layout", sub: "translate(), rotate(), scale(), skew()" },
+      { tag: "animation-duration", cat: "Animation", bc: "bca", desc: "Thời gian chạy 1 vòng animation", sub: "" },
+      { tag: "animation-delay", cat: "Animation", bc: "bca", desc: "Độ trễ trước khi animation bắt đầu", sub: "" },
+      { tag: "animation-iteration-count", cat: "Animation", bc: "bca", desc: "Số lần lặp animation (infinite để lặp vô tận)", sub: "" },
+      { tag: "animation-timing-function", cat: "Animation", bc: "bca", desc: "Tốc độ biến thiên của animation", sub: "ease | linear | ease-in | ease-out | cubic-bezier(...)" },
+      { tag: "@keyframes", cat: "Animation", bc: "bca", desc: "Định nghĩa các bước của animation", sub: "from {...} to {...} hoặc 0% {...} 50% {...} 100% {...}" },
+      { tag: "@media", cat: "Responsive", bc: "bco", desc: "Áp dụng CSS theo kích thước màn hình hoặc thiết bị", sub: "@media (max-width: 768px) { } — nền tảng responsive design" },
+      { tag: "@import", cat: "Responsive", bc: "bco", desc: "Nhúng file CSS khác vào file hiện tại", sub: "" },
+      { tag: "@font-face", cat: "Responsive", bc: "bco", desc: "Nhúng font tùy chỉnh từ file", sub: "" },
+      { tag: "var()", cat: "Biến CSS", bc: "bco", desc: "Sử dụng biến CSS đã khai báo", sub: "--primary-color: blue; color: var(--primary-color)" },
+      { tag: "calc()", cat: "Biến CSS", bc: "bco", desc: "Tính toán giá trị ngay trong CSS", sub: "width: calc(100% - 40px) — trộn các đơn vị khác nhau" },
+      { tag: "object-fit", cat: "Media", bc: "bco", desc: "Cách ảnh/video lấp đầy vùng chứa", sub: "cover: cắt để phủ đầy | contain: hiện hết không cắt" },
+      { tag: "aspect-ratio", cat: "Media", bc: "bco", desc: "Tỉ lệ chiều rộng/chiều cao cố định", sub: "aspect-ratio: 16/9 — giữ tỉ lệ dù resize" },
+      { tag: "pointer-events", cat: "Hiệu ứng", bc: "bco", desc: "Kiểm soát phần tử có phản hồi chuột/chạm hay không", sub: "none = phần tử vô hình với sự kiện chuột" },
+      { tag: "user-select", cat: "Hiệu ứng", bc: "bco", desc: "Cho phép hay ngăn người dùng bôi đen văn bản", sub: "none = không thể chọn text — dùng cho button, label" },
+      { tag: "scroll-behavior", cat: "Cuộn", bc: "bco", desc: "Cuộn mượt mà khi nhấp link nội bộ", sub: "scroll-behavior: smooth" },
+      { tag: "overflow-x", cat: "Cuộn", bc: "bco", desc: "Kiểm soát cuộn ngang riêng biệt", sub: "auto tạo thanh cuộn khi cần, hidden ẩn hoàn toàn" },
+      { tag: "overflow-y", cat: "Cuộn", bc: "bco", desc: "Kiểm soát cuộn dọc riêng biệt", sub: "" },
+      { tag: "list-style", cat: "Danh sách", bc: "bco", desc: "Kiểu bullet point của danh sách", sub: "none | disc | circle | square | decimal" },
+      { tag: "table-layout", cat: "Bảng", bc: "bco", desc: "Cách tính độ rộng cột bảng", sub: "fixed: nhanh hơn | auto: tự điều chỉnh theo nội dung" },
+      { tag: "border-collapse", cat: "Bảng", bc: "bco", desc: "Gộp viền bảng (loại khoảng trống giữa ô)", sub: "collapse | separate" },
+      { tag: "resize", cat: "Form", bc: "bco", desc: "Cho phép người dùng kéo để thay đổi kích thước", sub: "both | horizontal | vertical | none — thường dùng với textarea" },
+      { tag: "content", cat: "Pseudo", bc: "bco", desc: "Thêm nội dung ảo qua ::before hoặc ::after", sub: "Chỉ hoạt động với ::before và ::after" },
+    ];
+
+    var tab = 'html', cat = 'Tất cả';
+
+    function setTab(t, el) {
+      tab = t; cat = 'Tất cả';
+      document.querySelectorAll('.tab').forEach(function (b) { b.classList.remove('active') });
+      el.classList.add('active');
+      render();
+    }
+
+    function setCat(c) { cat = c; render(); }
+
+    function render() {
+      var data = tab === 'html' ? HTML : CSS;
+      var q = document.getElementById('search').value.toLowerCase().trim();
+
+      var filtered = data.filter(function (d) {
+        var matchCat = cat === 'Tất cả' || d.cat === cat;
+        var matchQ = !q || d.tag.toLowerCase().includes(q) || (d.raw && d.raw.toLowerCase().includes(q)) || d.desc.toLowerCase().includes(q) || (d.sub && d.sub.toLowerCase().includes(q)) || d.cat.toLowerCase().includes(q);
+        return matchCat && matchQ;
+      });
+
+      var cats = ['Tất cả'].concat(data.reduce(function (acc, d) { if (acc.indexOf(d.cat) < 0) acc.push(d.cat); return acc; }, []));
+      document.getElementById('cats').innerHTML = cats.map(function (c) {
+        return '<button class="cat-btn' + (c === cat ? ' active' : '') + '" onclick="setCat(\'' + c + '\')">' + c + '</button>';
+      }).join('');
+
+      document.getElementById('tbody').innerHTML = filtered.map(function (d) {
+        return '<tr><td><span class="tag-cell">' + d.tag + '</span></td><td><span class="badge ' + d.bc + '">' + d.cat + '</span></td><td><div class="desc">' + d.desc + '</div>' + (d.sub ? '<div class="subdesc">' + d.sub + '</div>' : '') + '</td></tr>';
+      }).join('');
+
+      document.getElementById('nores').style.display = filtered.length ? 'none' : 'block';
+      document.getElementById('count').textContent = filtered.length + ' ' + (tab === 'html' ? 'thẻ HTML' : 'thuộc tính CSS') + (q || cat !== 'Tất cả' ? ' phù hợp' : ' tổng cộng');
+    }
+
+    render();
+  </script>
+</body>
+
+</html>
