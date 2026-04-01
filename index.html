@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Reference</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 md:p-8 font-sans">
+
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-center text-gray-900">Bảng Tra Cứu HTML & CSS</h1>
+        
+        <!-- Thanh tìm kiếm -->
+        <div class="mb-8">
+            <input type="text" id="searchInput" placeholder="Nhập tên thẻ hoặc thuộc tính để tìm nhanh..." 
+                   class="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg">
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Bảng HTML -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-[75vh]">
+                <h2 class="bg-blue-600 text-white p-4 text-xl font-semibold flex items-center justify-between">
+                    <span>HTML Elements Reference</span>
+                    <span class="text-sm bg-blue-800 px-2 py-1 rounded">Thẻ & Công dụng</span>
+                </h2>
+                <div class="overflow-y-auto flex-1 p-0">
+                    <table class="w-full text-left border-collapse" id="htmlTable">
+                        <thead class="sticky top-0 bg-gray-50 shadow-sm">
+                            <tr>
+                                <th class="p-3 border-b font-semibold text-gray-700 w-1/3">Tag</th>
+                                <th class="p-3 border-b font-semibold text-gray-700">Mô tả (Tiếng Việt)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <!-- Danh sách HTML -->
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;a&gt;</td><td class="p-3">Tạo liên kết (Hyperlink) đến các trang hoặc khu vực khác.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;article&gt;</td><td class="p-3">Định nghĩa một nội dung độc lập, hoàn chỉnh (bài báo, bài viết blog).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;aside&gt;</td><td class="p-3">Nội dung phụ bên lề (sidebar) liên quan đến nội dung chính.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;audio&gt;</td><td class="p-3">Nhúng âm thanh (nhạc, file ghi âm) vào trang web.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;b&gt;</td><td class="p-3">In đậm văn bản (không mang ý nghĩa nhấn mạnh).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;body&gt;</td><td class="p-3">Phần thân tài liệu, chứa toàn bộ nội dung hiển thị trên trình duyệt.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;br&gt;</td><td class="p-3">Ngắt dòng (xuống dòng) văn bản.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;button&gt;</td><td class="p-3">Tạo một nút bấm có thể nhấp chuột.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;canvas&gt;</td><td class="p-3">Khu vực để vẽ đồ họa, biểu đồ hoặc hoạt ảnh bằng JavaScript.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;code&gt;</td><td class="p-3">Định dạng đoạn mã lập trình (code snippet).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;div&gt;</td><td class="p-3">Thẻ gom nhóm nội dung (Block-level), dùng để chia bố cục.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;em&gt;</td><td class="p-3">In nghiêng văn bản (mang ý nghĩa nhấn mạnh ngữ điệu).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;footer&gt;</td><td class="p-3">Chân trang, chứa thông tin bản quyền, liên hệ.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;form&gt;</td><td class="p-3">Tạo biểu mẫu để người dùng nhập liệu (đăng nhập, liên hệ).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;h1&gt; đến &lt;h6&gt;</td><td class="p-3">Các thẻ tiêu đề (Heading). &lt;h1&gt; lớn nhất, &lt;h6&gt; nhỏ nhất.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;head&gt;</td><td class="p-3">Chứa thông tin cấu hình (meta, title, link css) không hiển thị trực tiếp.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;header&gt;</td><td class="p-3">Phần đầu của trang web hoặc một phần vùng (chứa logo, menu).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;hr&gt;</td><td class="p-3">Tạo đường gạch ngang phân cách nội dung.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;html&gt;</td><td class="p-3">Thẻ gốc (root) bao bọc toàn bộ mã HTML của trang.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;i&gt;</td><td class="p-3">In nghiêng văn bản.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;iframe&gt;</td><td class="p-3">Nhúng một trang web khác (ví dụ video YouTube) vào trang hiện tại.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;img&gt;</td><td class="p-3">Chèn hình ảnh vào trang.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;input&gt;</td><td class="p-3">Trường để nhập dữ liệu (text, password, checkbox, radio).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;label&gt;</td><td class="p-3">Nhãn dán cho các thẻ &lt;input&gt; trong form.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;li&gt;</td><td class="p-3">Mục danh sách (nằm trong &lt;ul&gt; hoặc &lt;ol&gt;).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;link&gt;</td><td class="p-3">Liên kết với tài liệu ngoài (thường dùng gắn file CSS).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;main&gt;</td><td class="p-3">Xác định nội dung chính, cốt lõi của tài liệu.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;meta&gt;</td><td class="p-3">Khai báo siêu dữ liệu (charset, SEO, viewport).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;nav&gt;</td><td class="p-3">Khu vực chứa các liên kết điều hướng (menu).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;ol&gt;</td><td class="p-3">Danh sách có thứ tự (đánh số 1, 2, 3...).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;p&gt;</td><td class="p-3">Định nghĩa một đoạn văn bản (Paragraph).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;script&gt;</td><td class="p-3">Nhúng hoặc tham chiếu mã JavaScript.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;section&gt;</td><td class="p-3">Một phần (section) cụ thể của trang web.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;select&gt;</td><td class="p-3">Tạo danh sách thả xuống (dropdown list).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;span&gt;</td><td class="p-3">Thẻ gom nhóm nội dung (Inline), dùng để định dạng văn bản nhỏ.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;strong&gt;</td><td class="p-3">In đậm văn bản (mang ý nghĩa cực kỳ quan trọng).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;style&gt;</td><td class="p-3">Khu vực để viết mã CSS nội bộ.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;table&gt;</td><td class="p-3">Tạo một bảng dữ liệu.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;td&gt;</td><td class="p-3">Một ô dữ liệu chuẩn trong bảng.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;textarea&gt;</td><td class="p-3">Khu vực nhập văn bản nhiều dòng.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;th&gt;</td><td class="p-3">Ô tiêu đề trong bảng (thường in đậm và căn giữa).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;title&gt;</td><td class="p-3">Tiêu đề trang web (hiển thị trên tab trình duyệt).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;tr&gt;</td><td class="p-3">Định nghĩa một hàng trong bảng.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;ul&gt;</td><td class="p-3">Danh sách không thứ tự (dùng dấu chấm tròn).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-blue-600">&lt;video&gt;</td><td class="p-3">Nhúng video vào trang web.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bảng CSS -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-[75vh]">
+                <h2 class="bg-purple-600 text-white p-4 text-xl font-semibold flex items-center justify-between">
+                    <span>CSS Properties Reference</span>
+                    <span class="text-sm bg-purple-800 px-2 py-1 rounded">Thuộc tính & Công dụng</span>
+                </h2>
+                <div class="overflow-y-auto flex-1 p-0">
+                    <table class="w-full text-left border-collapse" id="cssTable">
+                        <thead class="sticky top-0 bg-gray-50 shadow-sm">
+                            <tr>
+                                <th class="p-3 border-b font-semibold text-gray-700 w-1/3">Property</th>
+                                <th class="p-3 border-b font-semibold text-gray-700">Mô tả (Tiếng Việt)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <!-- Danh sách CSS -->
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">align-items</td><td class="p-3">Căn chỉnh các phần tử con theo trục chéo (cross-axis) trong Flexbox/Grid.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">background-color</td><td class="p-3">Thiết lập màu nền cho phần tử.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">background-image</td><td class="p-3">Thiết lập hình ảnh làm hình nền.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">border</td><td class="p-3">Định dạng đường viền xung quanh phần tử (độ dày, kiểu, màu).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">border-radius</td><td class="p-3">Bo tròn các góc của phần tử.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">box-shadow</td><td class="p-3">Tạo hiệu ứng đổ bóng cho phần tử (thường dùng làm thẻ card).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">box-sizing</td><td class="p-3">Xác định cách tính toán chiều rộng/cao (thường dùng `border-box`).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">color</td><td class="p-3">Đổi màu chữ (văn bản) của phần tử.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">cursor</td><td class="p-3">Thay đổi kiểu con trỏ chuột khi di chuột qua phần tử (vd: `pointer`).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">display</td><td class="p-3">Quy định cách phần tử hiển thị (`block`, `inline`, `flex`, `grid`, `none`).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">flex-direction</td><td class="p-3">Quy định hướng xếp các phần tử con trong Flexbox (row, column).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">font-family</td><td class="p-3">Thiết lập kiểu phông chữ (kiểu chữ) cho văn bản.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">font-size</td><td class="p-3">Thiết lập kích thước của chữ.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">font-weight</td><td class="p-3">Độ dày của chữ (đậm, nhạt - `bold`, `normal`).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">gap</td><td class="p-3">Tạo khoảng cách giữa các hàng/cột trong Flexbox hoặc Grid.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">height</td><td class="p-3">Chiều cao của phần tử.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">justify-content</td><td class="p-3">Căn chỉnh các phần tử con theo trục chính (main-axis) trong Flexbox.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">line-height</td><td class="p-3">Khoảng cách giữa các dòng chữ (chiều cao dòng).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">margin</td><td class="p-3">Khoảng cách (lề) bên ngoài phần tử (đẩy các phần tử khác ra xa).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">max-width</td><td class="p-3">Chiều rộng tối đa mà phần tử có thể đạt tới.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">opacity</td><td class="p-3">Độ mờ/trong suốt của phần tử (0 đến 1).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">overflow</td><td class="p-3">Xử lý nội dung bị tràn ra ngoài khung (ẩn đi, tạo thanh cuộn).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">padding</td><td class="p-3">Khoảng cách (lề) bên trong phần tử (từ viền đến nội dung).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">position</td><td class="p-3">Định vị phần tử (`static`, `relative`, `absolute`, `fixed`, `sticky`).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">text-align</td><td class="p-3">Căn lề chữ (trái, phải, giữa, đều hai bên).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">text-decoration</td><td class="p-3">Trang trí chữ (gạch chân, gạch ngang, bỏ gạch chân của thẻ a).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">transform</td><td class="p-3">Biến đổi hình học (xoay `rotate`, thu phóng `scale`, dịch chuyển `translate`).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">transition</td><td class="p-3">Tạo hiệu ứng chuyển đổi mượt mà giữa các trạng thái (vd: khi hover).</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">width</td><td class="p-3">Chiều rộng của phần tử.</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-mono text-purple-600">z-index</td><td class="p-3">Thứ tự xếp lớp (theo trục Z). Số lớn hơn sẽ nằm đè lên trên.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Tính năng tìm kiếm động
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const filterText = this.value.toLowerCase();
+            const tables = [document.getElementById('htmlTable'), document.getElementById('cssTable')];
+
+            tables.forEach(table => {
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    const tagOrProperty = row.cells[0].textContent.toLowerCase();
+                    const description = row.cells[1].textContent.toLowerCase();
+                    
+                    if (tagOrProperty.includes(filterText) || description.includes(filterText)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
